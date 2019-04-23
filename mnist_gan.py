@@ -95,19 +95,3 @@ if __name__ == "__main__":
         saver.save(sess, './models/300_epoch_model')
 
     saver = tf.train.Saver(var_list=g_vars)
-    """
-    for i in range(len(samples)):
-        plt.imshow(samples[i].reshape(28,28))
-        plt.savefig('images/gan_{}.png'.format(i))
-
-    new_samples = []
-    with tf.Session() as sess:
-    
-        saver.restore(sess,'./models/300_epoch_model')
-    
-        for x in range(5):
-            sample_z = np.random.uniform(-1,1,size=(1,100))
-            gen_sample = sess.run(generator(z,reuse=True),feed_dict={z:sample_z})
-        
-            new_samples.append(gen_sample)
-    """
